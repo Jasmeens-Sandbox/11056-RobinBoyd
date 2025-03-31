@@ -1,0 +1,132 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700');
+
+:root {
+    /*|| Font family*/
+    --ff-headings: 'Teko', sans-serif;
+    --ff-primary: 'Roboto', sans-serif;
+
+    /*|| Font sizes */
+    --fs-0: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+    --fs-1: clamp(1.125rem, 1.0607rem + 0.3214vw, 1.35rem);
+    --fs-2: clamp(1.2656rem, 1.1644rem + 0.5063vw, 1.62rem);
+    --fs-3: clamp(1.4238rem, 1.2752rem + 0.7431vw, 1.944rem);
+    --fs-4: clamp(1.6018rem, 1.393rem + 1.0443vw, 2.3328rem);
+    --fs-5: clamp(1.802rem, 1.5171rem + 1.4248vw, 2.7994rem);
+    --fs-6: clamp(2.0273rem, 1.6467rem + 1.9028vw, 3.3592rem);
+    --fs-7: clamp(2.2807rem, 1.7806rem + 2.5005vw, 4.0311rem);
+    --fs-8: clamp(2.5658rem, 1.9168rem + 3.245vw, 4.8373rem);
+
+    /*|| Spaces */
+    --space-2xs: clamp(0.5rem, 0.4821rem + 0.0893vw, 0.5625rem);
+    --space-xs: clamp(0.75rem, 0.7143rem + 0.1786vw, 0.875rem);
+    --space-s: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+    --space-m: clamp(1.5rem, 1.4464rem + 0.2679vw, 1.6875rem);
+    --space-l: clamp(2rem, 1.9286rem + 0.3571vw, 2.25rem);
+    --space-xl: clamp(3rem, 2.8929rem + 0.5357vw, 3.375rem);
+    --space-2xl: clamp(4rem, 3.8571rem + 0.7143vw, 4.5rem);
+    --space-3xl: clamp(6rem, 5.7857rem + 1.0714vw, 6.75rem);
+
+    /*|| Colurs*/
+
+    /* Neutral colours */
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-grey-light: hsla(0, 0%, 87%, 0.867);
+    --clr-grey: hsl(204, 8%, 76%);
+    --clr-grey-dark: hsl(0, 0%, 55%);
+    --clr-black: hsl(0, 0%, 14%);
+    --clr-tan: hsl(29, 36%, 56%);
+
+    /* Primary colours (Header, Footer etc.)*/
+    --clr-primary: hsl(35, 40%, 88%);
+    --clr-primary-text: var(--clr-black);
+
+    /* Secondary colours (CTA,Buttons etc.)*/
+    --clr-secondary: hsl(349, 100%, 46%);
+    --clr-secondary-hover: hsl(349, 100%, 64%);
+    --clr-secondary-text: var(--clr-white);
+
+    /* Tertiary colours */
+    --clr-tertiary: hsl(210, 29%, 29%);
+    --clr-tertiary-light: hsl(192, 15%, 94%);
+
+}
+
+/*|| Base elements css*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--ff-headings);
+}
+
+h1 {
+    font-size: var(--fs-7);
+}
+
+h2 {
+    font-size: var(--fs-5);
+}
+
+h3 {
+    font-size: var(--fs-3);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--ff-primary);
+    color: var(--clr-primary-text);
+    font-size: 1rem;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--clr-primary);
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    z-index: 99;
+}
+
+main {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding: var(--space-xl) 0;
+}
+
+footer {
+    padding: var(--space-l) 0;
+    background-color: var(--clr-primary);
+    text-align: center;
+}
+
+/*|| END Base elements css*/
