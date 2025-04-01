@@ -130,3 +130,213 @@ footer {
 }
 
 /*|| END Base elements css*/
+
+
+/*|| Shared elements css*/
+.btn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+}
+
+.btn:hover {
+    background-color: var(--clr-secondary-hover);
+}
+
+.btn:focus,
+.btn:active {
+    transform: translateY(4px);
+    background-color: var(--clr-secondary);
+}
+
+.parallex-container {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+/*|| END Shared elements css*/
+
+/*|| Navigation Start*/
+
+.nav {
+    --_height: 70px;
+    height: var(--_height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.nav__logo {
+    --_height-width: 50px;
+    --_logo-height: var(--_height-width);
+    --_logo-width: var(--_height-width);
+
+    height: var(--_logo-height);
+    width: var(--_logo-width);
+
+    background-color: var(--clr-secondary);
+    font-family: var(--ff-primary);
+    color: var(--clr-secondary-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.nav__logo-link {
+    text-decoration: none;
+}
+
+.nav__logo-initial {
+    font-size: 1.5rem;
+}
+
+.nav__logo-full {
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+}
+
+/* Navigation List - Hidden by Default (for Mobile) */
+.nav__list {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-primary);
+    border-top: 1px solid var(--clr-tan);
+    top: var(--_height);
+    right: -100%;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    border-radius: 0 0 10px 10px;
+    padding: 1rem;
+    list-style: none;
+    gap: 1rem;
+    font-weight: 500;
+}
+
+/* When active, show the menu */
+.nav__list.active {
+    right: 0;
+}
+
+/* Navigation Links */
+.nav__link {
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+    color: var(--clr-secondary);
+}
+
+/* === Active Link Styling === */
+.nav__link:focus,
+.nav__link:active {
+    color: var(--clr-secondary-hover);
+}
+
+/* Hamburger Menu - Visible by Default */
+.hamburger {
+    display: block;
+    cursor: pointer;
+}
+
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--clr-primary-text);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Hamburger*/
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/*|| Navigation End*/
+
+/*|| HERO Start*/
+.hero {
+    --_hero-height: 350px;
+    background-image: url(../images/churchill-house-46.jpg);
+    height: var(--_hero-height);
+    text-align: var(--_text-align, center);
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(1, 1, 1, 0.5);
+    z-index: 0;
+}
+
+.hero__content {
+    height: var(--_hero-height);
+    position: relative;
+    color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero__description {
+    margin-bottom: var(--space-xs);
+}
+
+/*|| HERO END*/
+
+@media (min-width: 768px) {
+    .nav__list {
+        position: static;
+        flex-direction: row;
+        background: none;
+        border: none;
+        width: auto;
+        gap: 1rem;
+        display: flex;
+        padding: 0;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .hero {
+        --_hero-height: 400px;
+        --_text-align: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero {
+        --_hero-height: 500px;
+        --_text-align: left;
+    }
+}
