@@ -55,7 +55,9 @@
     --heading-border: 2px solid var(--clr-tan);
 }
 
-/*|| Base elements css*/
+/*===========================
+  Base Elements
+===========================*/
 
 *,
 *::before,
@@ -67,6 +69,16 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--ff-primary);
+    color: var(--clr-primary-text);
+    font-size: 1rem;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
 a {
@@ -98,16 +110,6 @@ img {
     display: block;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    font-family: var(--ff-primary);
-    color: var(--clr-primary-text);
-    font-size: 1rem;
-    line-height: 1.6;
-    min-height: 100vh;
-}
-
 header {
     background-color: var(--clr-primary);
     position: sticky;
@@ -118,7 +120,6 @@ header {
 
 main {
     flex: 1;
-    height: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
@@ -131,21 +132,19 @@ footer {
     text-align: center;
 }
 
-/*|| END Base elements css*/
+/*===========================
+  Shared Elements
+===========================*/
 
-
-/*|| Shared elements css*/
 .btn {
     display: inline-block;
     text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
     cursor: pointer;
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
     background-color: var(--clr-secondary);
     color: var(--clr-white);
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
@@ -164,13 +163,36 @@ footer {
     background-size: cover;
 }
 
+.line-overflow {
+    --lh: 1.6rem;
+    --max-lines: attr(data-max-lines type(<number>));
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--max-lines, 3);
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
 .w-100 {
     width: 100%;
 }
 
-/*|| END Shared elements css*/
+.pt-0 {
+    padding-top: 0;
+}
 
-/*|| Navigation Start*/
+/*===========================
+  Navigation
+===========================*/
 
 .nav {
     --_height: 70px;
@@ -180,15 +202,10 @@ footer {
     justify-content: space-between;
 }
 
-/* Logo */
 .nav__logo {
     --_height-width: 50px;
-    --_logo-height: var(--_height-width);
-    --_logo-width: var(--_height-width);
-
-    height: var(--_logo-height);
-    width: var(--_logo-width);
-
+    height: var(--_height-width);
+    width: var(--_height-width);
     background-color: var(--clr-secondary);
     font-family: var(--ff-primary);
     color: var(--clr-secondary-text);
@@ -212,7 +229,6 @@ footer {
     font-size: 0.75rem;
 }
 
-/* Navigation List - Hidden by Default (for Mobile) */
 .nav__list {
     position: fixed;
     display: flex;
@@ -231,12 +247,10 @@ footer {
     font-weight: 500;
 }
 
-/* When active, show the menu */
 .nav__list.active {
     right: 0;
 }
 
-/* Navigation Links */
 .nav__link {
     text-transform: uppercase;
     transition: color 0.3s ease;
@@ -246,18 +260,15 @@ footer {
     color: var(--clr-secondary);
 }
 
-/* === Active Link Styling === */
 .nav__link:focus,
 .nav__link:active {
     color: var(--clr-secondary-hover);
 }
 
-/* Hamburger Menu - Visible by Default */
 .hamburger {
     display: block;
     cursor: pointer;
 }
-
 
 .bar {
     display: block;
@@ -268,7 +279,6 @@ footer {
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* Hamburger*/
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
 }
@@ -281,26 +291,16 @@ footer {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/*|| Navigation End*/
+/*===========================
+  Hero Section
+===========================*/
 
-/*|| HERO Start*/
 .hero {
     --_hero-height: 450px;
     background-image: url(../images/churchill-house-46.jpg);
     height: var(--_hero-height);
     text-align: var(--_text-align, center);
     position: relative;
-}
-
-.hero::before {
-    content: '';
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(1, 1, 1, 0.5);
-    z-index: 0;
 }
 
 .hero__content {
@@ -316,9 +316,10 @@ footer {
     margin-bottom: var(--space-xs);
 }
 
-/*|| HERO END*/
+/*===========================
+  Sub-Hero Section
+===========================*/
 
-/* || Sub Hero Section*/
 .sub-hero__image-container {
     --_height: 350px;
     height: var(--_height);
@@ -338,7 +339,9 @@ footer {
     border-bottom: var(--heading-border);
 }
 
-/* || Sub Hero Section END*/
+/*===========================
+  Card Section
+===========================*/
 
 .card {
     background-color: antiquewhite;
@@ -367,17 +370,6 @@ footer {
     background: url("../images/churchill-house-34.jpg") no-repeat center center / cover;
 }
 
-.card::before {
-    content: '';
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(1, 1, 1, 0.5);
-    z-index: 0;
-}
-
 .card__img {
     display: none;
 }
@@ -397,32 +389,17 @@ footer {
     position: relative;
 }
 
-.line-overflow {
-    --lh: 1.6rem;
-    --max-lines: attr(data-max-lines type(<number>));
-    max-height: calc(var(--lh) * var(--max-lines));
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: var(--max-lines, 3);
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
+/*===========================
+  Gallery
+===========================*/
+
+.gallery {
+    margin-top: var(--space-l);
 }
 
-
-.gallery{
- margin-top: var(--space-l);
-}
 .gallery__head,
 .gallery__title {
     text-align: center;
-}
-
-.gallery__head{
-    font-size: var(--fs-6);
-}
-
-.gallery__sub-heading{
-    color: var(--clr-tan);
 }
 
 .gallery__title {
@@ -430,9 +407,13 @@ footer {
     border-bottom: var(--heading-border);
 }
 
+.gallery__sub-heading {
+    color: var(--clr-tan);
+}
+
 .gallery__action {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -443,16 +424,57 @@ footer {
     object-fit: cover;
 }
 
+/*===========================
+  Article Page
+===========================*/
+
+.article__hero {
+    height: 300px;
+    position: relative;
+    background-size: cover;
+    background-position-y: -280px;
+}
+
+.article__manning-clark{
+    background-image: url(../images/manning-clark-5\ photo\ copyright\ anthiny\ basheer.jpg);
+}
+
+.article__title {
+    text-align: center;
+    border-bottom: var(--heading-border);
+}
+
+.article__subtitle{
+    font-size: var(--fs-3);
+}
+
+.article__body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: var(--space-s) 0 0;
+    gap: var(--space-xs);
+}
+
+.article__img {
+    width: 100%;
+    margin-top: var(--space-m);
+}
+
+/*===========================
+  Media Queries
+===========================*/
+
 @media (min-width: 768px) {
     .nav__list {
+        display: flex;
         position: static;
         flex-direction: row;
+        gap: 1rem;
+        padding: 0;
+        width: auto;
         background: none;
         border: none;
-        width: auto;
-        gap: 1rem;
-        display: flex;
-        padding: 0;
     }
 
     .hamburger {
@@ -465,26 +487,25 @@ footer {
     }
 
     .sub-hero__image-container {
-        --_height: 400px
+        --_height: 400px;
+    }
+
+    .card {
+        gap: 1.5rem;
+        color: var(--clr-primary-text);
+        background-color: var(--clr-grey-light);
+        height: unset;
+        background: unset;
+        padding: 0 0 1.5rem;
+    }
+
+    .card::before {
+        content: none;
     }
 
     .card__img {
         display: block;
         height: 300px;
-    }
-
-    .card {
-        height: unset;
-        background: unset;
-        padding: unset;
-        gap: 1.5rem;
-        padding-bottom: 1.5rem;
-        color: var(--clr-primary-text);
-        background-color: var(--clr-grey-light);
-    }
-
-    .card::before {
-        content: none;
     }
 
     .card__title {
@@ -497,12 +518,15 @@ footer {
         padding: 0 var(--space-s);
     }
 
-    .card__btn {
-        width: 50%;
+    .gallery__title,
+    .article__title,
+    .article__body {
+        text-align: left;
     }
 
-    .gallery__title{
-        text-align: left;
+    .article__img--centered {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -514,5 +538,10 @@ footer {
 
     .sub-hero__image-container {
         --_height: 100%;
+    }
+
+    .article__hero {
+        height: 400px;
+        background-position-y: -400px;
     }
 }
