@@ -190,6 +190,14 @@ footer {
     padding-top: 0;
 }
 
+.mt-l {
+    margin-top: var(--space-l);
+}
+
+.d-md-show {
+    display: none;
+}
+
 /*===========================
   Navigation
 ===========================*/
@@ -435,7 +443,7 @@ footer {
     background-position-y: -280px;
 }
 
-.article__manning-clark{
+.article__manning-clark {
     background-image: url(../images/manning-clark-5\ photo\ copyright\ anthiny\ basheer.jpg);
 }
 
@@ -444,7 +452,7 @@ footer {
     border-bottom: var(--heading-border);
 }
 
-.article__subtitle{
+.article__subtitle {
     font-size: var(--fs-3);
 }
 
@@ -456,9 +464,27 @@ footer {
     gap: var(--space-xs);
 }
 
+.article__list {
+    padding-left: 2.5rem;
+    text-align: left;
+}
+
+.article__card-figure {
+    background-color: var(--clr-grey-light);
+}
+
+.article__card-figure figcaption {
+    text-align: center;
+    font-family: var(--ff-headings);
+    font-size: var(--fs-3);
+}
+
+.article__card-figure img {
+    height: 400px;
+}
+
 .article__img {
     width: 100%;
-    margin-top: var(--space-m);
 }
 
 /*===========================
@@ -527,6 +553,14 @@ footer {
     .article__img--centered {
         display: flex;
         justify-content: center;
+    }
+
+    .article__card-figure img{
+        object-fit: cover;
+    }
+
+    .d-md-show {
+        display: block;
     }
 }
 
