@@ -424,12 +424,18 @@ footer {
     height: 300px;
     position: relative;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position-y: -280px;
 }
 
 .article__manning-clark {
     background-image: url(../images/manning-clark-5\ photo\ copyright\ anthiny\ basheerh.jpg);
-    background-position-y: -200px !important;
+    background-position-y: -200px;
+}
+
+.article__fenner {
+    background-image: url(../images/fenner-house-6.JPG);
+    background-position-y: -200px;
 }
 
 .article__title {
@@ -639,6 +645,7 @@ footer {
         background-position-y: -200px;
     }
 
+
     .d-md-show {
         display: block;
     }
@@ -658,4 +665,9 @@ footer {
         height: 400px;
         background-position-y: -100px;
     }
+
+    .article__fenner {
+        background-position-y: 50%;
+    }
+
 }
