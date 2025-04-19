@@ -438,6 +438,10 @@ footer {
     background-position-y: -200px;
 }
 
+.article__churchill {
+    background-image: url(../images/churchill-house-28.jpg);
+}
+
 .article__title {
     text-align: center;
     border-bottom: var(--heading-border);
@@ -645,7 +649,6 @@ footer {
         background-position-y: -200px;
     }
 
-
     .d-md-show {
         display: block;
     }
@@ -666,8 +669,8 @@ footer {
         background-position-y: -100px;
     }
 
-    .article__fenner {
+    .article__fenner,
+    .article__churchill {
         background-position-y: 50%;
     }
-
 }
