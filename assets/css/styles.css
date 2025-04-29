@@ -239,13 +239,12 @@ footer {
     font-weight: 500;
 }
 
-.nav__link--active::after {
-    content: '';
-    display: block;
-    height: 4px;
-    width: 100;
-    background: var(--clr-secondary);
-    transition: all 0.5s;
+.nav__link--active{
+    color: var(--clr-secondary);
+}
+
+.nav__list.active {
+    right: 0;
 }
 
 .nav__link {
@@ -598,6 +597,19 @@ footer {
         width: auto;
         background: none;
         border: none;
+    }
+
+    .nav__link--active{
+        color: var(--clr-primary-text);
+    }
+
+    .nav__link--active::after {
+        content: '';
+        display: block;
+        height: 4px;
+        width: auto;
+        background: var(--clr-secondary);
+        transition: all 0.5s;
     }
 
     .hamburger {
