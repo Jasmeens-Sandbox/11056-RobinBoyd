@@ -53,7 +53,151 @@
 
     /*Commons*/
     --heading-border: 2px solid var(--clr-tan);
+
+
+    /*Grid system*/
+    
+    /*Base width*/
+    --container-width: 90%;
+    
+    /*Container max widths*/
+    --container-max-width: 100%;
+    --container-max-width-sm: 540px;
+    --container-max-width-md: 720px;
+    --container-max-width-lg: 1200px;
+
+    /* Column padding */
+    --_x-pad: 0.75rem; 
+
+    /*Base column spans for 12 grid system*/
+    --grid-col-span-1: span 1;
+    --grid-col-span-2: span 2;
+    --grid-col-span-3: span 3;
+    --grid-col-span-4: span 4;
+    --grid-col-span-5: span 5;
+    --grid-col-span-6: span 6;
+    --grid-col-span-7: span 7;
+    --grid-col-span-8: span 8;
+    --grid-col-span-9: span 9;
+    --grid-col-span-10: span 10;
+    --grid-col-span-11: span 11;
+    --grid-col-span-12: span 12;
 }
+
+/* 
+  Naming Convention:
+  --------------------
+  This CSS follows a BEM (Block-Element-Modifier) naming convention for clarity, scalability, and maintainability.
+
+  - Block: `.grid-container` represents the main layout container (the block).
+  - Element: `.grid__row` and `.grid__col` are elements within the block, defining the structure of rows and columns.
+  - Modifier: Classes like `.grid__col--1`, `.grid__col--2`, etc., define variations of the columns, such as their width within a 12-column grid system.
+
+  This approach ensures a modular, consistent, and flexible layout, making it easier to scale and maintain.
+  
+  Custom properties prefixed with `--_` are treated as private.
+*/
+
+/* === Container === */
+.grid-container {
+    --_container-max-width: var(--container-max-width);
+    width: var(--container-width);
+    max-width: var(--_container-max-width);
+    margin: 0 auto;
+}
+
+.grid-container--fluid {
+    width: 100%;
+    padding: 0 var(--_x-pad);
+}
+
+/* === Grid Row (CSS Grid with Negative Margins) === */
+.grid__row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* Compensate for column padding by giving -margin */
+    margin: 0 calc(-1 * var(--_x-pad));
+}
+
+.grid__row>*{
+    padding: 0 var(--_x-pad);
+}
+
+/* === Grid Column === */
+.grid__col {
+    grid-column: var(--grid-col-span-12);
+}
+
+/* Column Width Modifiers */
+.grid__col--1  { grid-column: var(--grid-col-span-1); }
+.grid__col--2  { grid-column: var(--grid-col-span-2); }
+.grid__col--3  { grid-column: var(--grid-col-span-3); }
+.grid__col--4  { grid-column: var(--grid-col-span-4); }
+.grid__col--5  { grid-column: var(--grid-col-span-5); }
+.grid__col--6  { grid-column: var(--grid-col-span-6); }
+.grid__col--7  { grid-column: var(--grid-col-span-7); }
+.grid__col--8  { grid-column: var(--grid-col-span-8); }
+.grid__col--9  { grid-column: var(--grid-col-span-9); }
+.grid__col--10 { grid-column: var(--grid-col-span-10); }
+.grid__col--11 { grid-column: var(--grid-col-span-11); }
+.grid__col--12 { grid-column: var(--grid-col-span-12); }
+
+/* === Responsive Breakpoints === */
+
+/* Small (≥576px) */
+@media (min-width: 576px) {
+    .grid-container { --_container-max-width: var(--container-max-width-sm); }
+
+    .grid__col--sm-1  { grid-column: var(--grid-col-span-1); }
+    .grid__col--sm-2  { grid-column: var(--grid-col-span-2); }
+    .grid__col--sm-3  { grid-column: var(--grid-col-span-3); }
+    .grid__col--sm-4  { grid-column: var(--grid-col-span-4); }
+    .grid__col--sm-5  { grid-column: var(--grid-col-span-5); }
+    .grid__col--sm-6  { grid-column: var(--grid-col-span-6); }
+    .grid__col--sm-7  { grid-column: var(--grid-col-span-7); }
+    .grid__col--sm-8  { grid-column: var(--grid-col-span-8); }
+    .grid__col--sm-9  { grid-column: var(--grid-col-span-9); }
+    .grid__col--sm-10 { grid-column: var(--grid-col-span-10); }
+    .grid__col--sm-11 { grid-column: var(--grid-col-span-11); }
+    .grid__col--sm-12 { grid-column: var(--grid-col-span-12); }
+}
+
+/* Medium (≥768px) */
+@media (min-width: 768px) {
+    .grid-container { --_container-max-width: var(--container-max-width-md); }
+
+    .grid__col--md-1  { grid-column: var(--grid-col-span-1); }
+    .grid__col--md-2  { grid-column: var(--grid-col-span-2); }
+    .grid__col--md-3  { grid-column: var(--grid-col-span-3); }
+    .grid__col--md-4  { grid-column: var(--grid-col-span-4); }
+    .grid__col--md-5  { grid-column: var(--grid-col-span-5); }
+    .grid__col--md-6  { grid-column: var(--grid-col-span-6); }
+    .grid__col--md-7  { grid-column: var(--grid-col-span-7); }
+    .grid__col--md-8  { grid-column: var(--grid-col-span-8); }
+    .grid__col--md-9  { grid-column: var(--grid-col-span-9); }
+    .grid__col--md-10 { grid-column: var(--grid-col-span-10); }
+    .grid__col--md-11 { grid-column: var(--grid-col-span-11); }
+    .grid__col--md-12 { grid-column: var(--grid-col-span-12); }
+}
+
+/* Large (≥992px) */
+@media (min-width: 992px) {
+    .grid-container { --_container-max-width: var(--container-max-width-lg); }
+
+    .grid__col--lg-1  { grid-column: var(--grid-col-span-1); }
+    .grid__col--lg-2  { grid-column: var(--grid-col-span-2); }
+    .grid__col--lg-3  { grid-column: var(--grid-col-span-3); }
+    .grid__col--lg-4  { grid-column: var(--grid-col-span-4); }
+    .grid__col--lg-5  { grid-column: var(--grid-col-span-5); }
+    .grid__col--lg-6  { grid-column: var(--grid-col-span-6); }
+    .grid__col--lg-7  { grid-column: var(--grid-col-span-7); }
+    .grid__col--lg-8  { grid-column: var(--grid-col-span-8); }
+    .grid__col--lg-9  { grid-column: var(--grid-col-span-9); }
+    .grid__col--lg-10 { grid-column: var(--grid-col-span-10); }
+    .grid__col--lg-11 { grid-column: var(--grid-col-span-11); }
+    .grid__col--lg-12 { grid-column: var(--grid-col-span-12); }
+}
+
 
 /*===========================
   Base Elements
