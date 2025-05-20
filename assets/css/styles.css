@@ -307,17 +307,28 @@ footer {
     background-size: cover;
 }
 
+/* === Line Overflow Styles === */
+/* This class uses the line-clamp feature to restrict the content to a 
+certain number of lines and adds an ellipsis for overflow text */
+
 .line-overflow {
-    --lh: 1.6rem;
-    --max-lines: attr(data-max-lines type(<number>));
-    max-height: calc(var(--lh) * var(--max-lines));
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: var(--max-lines, 3);
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
+  --lh: 1.6rem;
+  /* Custom property to set max number of lines */
+  /* explicitly convert values to number*/
+  --max-lines: attr(data-max-lines type(<number>));
+  /* Calculate maximum height based on line count */
+  max-height: calc(var(--lh) * var(--max-lines));
+  /* Hides the overflowing content */
+  overflow: hidden;
+  display: -webkit-box;
+  /* Limits content to a specified number of lines (default is 3) */
+  -webkit-line-clamp: var(--max-lines, 3);
+  -webkit-box-orient: vertical;
+  /* Adds ellipsis (…) when content is too long */
+  text-overflow: ellipsis;
 }
 
+/* Adds black tint before any element*/
 .overlay::before {
     content: '';
     position: absolute;
@@ -841,3 +852,93 @@ footer {
         background-position-y: 50%;
     }
 }
+
+
+/*
+/////////////////
+Animations styles
+fadeInDown,fadeInUp,fadeInLeft,fadeInRight
+/////////////////
+*/
+
+.animate {
+    --translate-length: 50px;
+    opacity: 0;
+    visibility: hidden;
+    animation-duration: var(--duration, 0.5s);
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate3d(0, calc(-1 * var(--translate-length)), 0);
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInDown {
+    animation-name: fadeInDown;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate3d(0, calc(var(--translate-length)), 0);
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInUp {
+    animation-name: fadeInUp;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate3d(calc(-1 * var(--translate-length)), 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
+.fadeInLeft {
+    animation-name: fadeInLeft;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate3d(calc(var(--translate-length)), 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
+.fadeInRight {
+    animation-name: fadeInRight;
+}
+
+/*________Animation END____________*/
